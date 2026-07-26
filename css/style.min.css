@@ -1788,3 +1788,18 @@ button:focus-visible {
   background: rgba(76, 175, 80, 0.3);
   color: var(--text-white);
 }
+
+/* ═══════════════════════════════════════════════════════
+   ANTI-CLONE PROTECTION
+   ═══════════════════════════════════════════════════════ */
+img, .protected-image, .protected-image-overlay, .gal-img-wrap, .bonus-capa-wrap, .testi-shot {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
