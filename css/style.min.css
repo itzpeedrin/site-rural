@@ -2,8 +2,7 @@
    RURAL ELITE — Premium Mobile-First CSS
    ═══════════════════════════════════════════════════════ */
 
-/* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+/* ── Google Fonts ── carregada via <link> no <head> do index.html (parallel, não bloqueante) ── */
 
 /* ── CSS Variables / Design Tokens ── */
 :root {

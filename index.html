@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Aquece a conexão usada pelo Pixel da Meta -->
+  <link rel="preconnect" href="https://connect.facebook.net">
+
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -41,7 +44,42 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
 
   <link rel="preload" href="img/novo hero.webp" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="css/style.min.css?v=14">
+
+  <!-- Fonte Inter: carregada em paralelo com o CSS (antes vinha via @import dentro do style.min.css, o que serializava o download) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+
+  <link rel="stylesheet" href="css/style.min.css?v=15">
+
+  <!-- Seção do aplicativo (estilos próprios) -->
+  <style>
+    .appshow-grid{display:flex;gap:clamp(24px,5vw,64px);align-items:center;justify-content:center;flex-wrap:wrap;max-width:980px;margin:0 auto}
+    .appshow-phones{display:flex;gap:16px;flex:0 0 auto}
+    .appshow-phone{position:relative;width:min(220px,40vw);border-radius:30px;overflow:hidden;box-shadow:0 22px 55px rgba(0,0,0,.22)}
+    .appshow-phone img{display:block;width:100%;height:auto}
+    .appshow-phone:nth-child(2){transform:translateY(26px)}
+    .appshow-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:20px;max-width:370px;flex:1 1 300px}
+    .appshow-list li{display:flex;gap:14px;align-items:flex-start}
+    .appshow-list li>div{display:flex;flex-direction:column}
+    .appshow-ic{font-size:1.5rem;line-height:1;flex:0 0 auto}
+    .appshow-list strong{color:var(--text-dark);font-size:1rem;margin-bottom:3px}
+    .appshow-list span{color:var(--text-dark-60);font-size:.9rem;line-height:1.55}
+    .appshow-cta{text-align:center;margin-top:clamp(34px,5vw,54px)}
+    @media(max-width:560px){.appshow-phone:nth-child(2){transform:none}.appshow-phones{gap:10px}}
+
+    /* Preço cortado dos bônus — destaque em vermelho */
+    .bonus-old-price{color:#ff5b52;background:rgba(229,57,53,.18);border:1px solid rgba(229,57,53,.45)}
+
+    /* Notificações de compra (prova social) */
+    .buy-notif{position:fixed;bottom:14px;left:14px;z-index:900;max-width:250px;display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:var(--radius-md);border:1px solid rgba(255,255,255,.12);background:rgba(7,21,4,.96);box-shadow:0 10px 32px rgba(0,0,0,.4);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transform:translateY(12px);opacity:0;transition:transform .5s ease,opacity .5s ease;pointer-events:none}
+    .buy-notif.is-visible{transform:translateY(0);opacity:1}
+    .buy-notif-ic{flex:0 0 auto;color:var(--green-bright);display:flex}
+    .buy-notif-txt{line-height:1.28}
+    .buy-notif-name{margin:0;font-size:.72rem;font-weight:800;color:var(--text-white)}
+    .buy-notif-meta{margin:0;font-size:.66rem;color:var(--text-white-60)}
+    @media(max-width:480px){.buy-notif{bottom:10px;left:10px;max-width:212px}}
+  </style>
 </head>
 <body>
 
@@ -265,22 +303,28 @@
             <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via WhatsApp" data-bg="img/depoimentos/print-1.webp?v=1"><div class="protected-image-overlay"></div></div>
           </div>
           <div class="testi-slide">
-            <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via Instagram" data-bg="img/depoimentos/752507972_2911272359221561_6472322334957216805_n.webp"><div class="protected-image-overlay"></div></div>
+            <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via WhatsApp" data-bg="img/depoimentos/ruralplanner-01.webp"><div class="protected-image-overlay"></div></div>
           </div>
           <div class="testi-slide">
             <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via WhatsApp" data-bg="img/depoimentos/print-2.webp?v=1"><div class="protected-image-overlay"></div></div>
           </div>
           <div class="testi-slide">
-            <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via Instagram" data-bg="img/depoimentos/752723449_1321554030175627_6183889531440459447_n.webp"><div class="protected-image-overlay"></div></div>
+            <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via WhatsApp" data-bg="img/depoimentos/ruralplanner-02.webp"><div class="protected-image-overlay"></div></div>
           </div>
           <div class="testi-slide">
             <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via WhatsApp" data-bg="img/depoimentos/print-3.webp?v=1"><div class="protected-image-overlay"></div></div>
           </div>
           <div class="testi-slide">
-            <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via Instagram" data-bg="img/depoimentos/753690460_1729728011682279_5376072598014644057_n.webp"><div class="protected-image-overlay"></div></div>
+            <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via WhatsApp" data-bg="img/depoimentos/ruralplanner-03.webp"><div class="protected-image-overlay"></div></div>
           </div>
           <div class="testi-slide">
             <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via WhatsApp" data-bg="img/depoimentos/print-4.webp?v=1"><div class="protected-image-overlay"></div></div>
+          </div>
+          <div class="testi-slide">
+            <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via WhatsApp" data-bg="img/depoimentos/ruralplanner-04.webp"><div class="protected-image-overlay"></div></div>
+          </div>
+          <div class="testi-slide">
+            <div class="testi-shot protected-image protected-image-wrapper" role="img" aria-label="Depoimento de cliente via WhatsApp" data-bg="img/depoimentos/ruralplanner-05.webp"><div class="protected-image-overlay"></div></div>
           </div>
         </div>
       </div>
@@ -292,6 +336,8 @@
         <button type="button" class="testi-dot" data-index="4" aria-label="Ver depoimento 5"></button>
         <button type="button" class="testi-dot" data-index="5" aria-label="Ver depoimento 6"></button>
         <button type="button" class="testi-dot" data-index="6" aria-label="Ver depoimento 7"></button>
+        <button type="button" class="testi-dot" data-index="7" aria-label="Ver depoimento 8"></button>
+        <button type="button" class="testi-dot" data-index="8" aria-label="Ver depoimento 9"></button>
       </div>
     </div>
   </div>
@@ -376,6 +422,46 @@
 </section>
 
 <!-- ══════════════════════════════════════════════
+     O APLICATIVO — acesso ao sistema
+══════════════════════════════════════════════ -->
+<section id="aplicativo" class="section-light appshow">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag section-tag-dark">Exclusivo do Plano Premium</span>
+      <h2 class="section-title dark-title">Tudo na Palma da Mão, Direto no <em class="green">Nosso Aplicativo</em></h2>
+      <p class="section-desc">Ao garantir o <strong>Plano Premium</strong>, você entra no aplicativo do <strong>Meu Sítio Pronto</strong> e abre qualquer projeto na hora — do celular, no meio da obra ou sentado no curral. <strong>Não incluso no Plano Básico.</strong></p>
+    </div>
+
+    <div class="appshow-grid reveal">
+      <div class="appshow-phones">
+        <div class="appshow-phone protected-image-wrapper">
+          <img src="img/app-membros-1.webp" alt="Tela inicial do aplicativo Meu Sítio Pronto — sua biblioteca de projetos liberados" width="768" height="1376" loading="lazy" decoding="async" draggable="false">
+          <div class="protected-image-overlay"></div>
+        </div>
+        <div class="appshow-phone protected-image-wrapper">
+          <img src="img/app-membros-2.webp" alt="Aplicativo Meu Sítio Pronto — catálogo de projetos por categoria com plantas, materiais e custo" width="768" height="1376" loading="lazy" decoding="async" draggable="false">
+          <div class="protected-image-overlay"></div>
+        </div>
+      </div>
+
+      <ul class="appshow-list">
+        <li><span class="appshow-ic">📚</span><div><strong>Sua biblioteca completa</strong><span>Todos os projetos e bônus liberados numa conta só, organizados por categoria.</span></div></li>
+        <li><span class="appshow-ic">📲</span><div><strong>Leva direto pra obra</strong><span>Abre a planta no celular ou salva o PDF pra consultar sem internet no meio do mato.</span></div></li>
+        <li><span class="appshow-ic">🔄</span><div><strong>Atualizações automáticas</strong><span>Projeto novo no acervo aparece direto no seu app, sem pagar nada a mais.</span></div></li>
+        <li><span class="appshow-ic">♾️</span><div><strong>Acesso vitalício</strong><span>Entra quando quiser, de qualquer aparelho. O acesso é seu pra sempre.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="appshow-cta reveal">
+      <a href="#planos" class="btn-gold btn-hero btn-pulse">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        QUERO ACESSO AO APLICATIVO
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
      PLANOS / PREÇOS
 ══════════════════════════════════════════════ -->
 <section id="planos" class="pv2-section">
@@ -414,6 +500,7 @@
           <li class="pv2-no"><span class="pv2-ic">✖</span><span>Pack Móveis Rurais</span></li>
           <li class="pv2-no"><span class="pv2-ic">✖</span><span>Pack Máquinas e Equipamentos</span></li>
           <li class="pv2-no"><span class="pv2-ic">✖</span><span>Pack Projetos de Irrigação</span></li>
+          <li class="pv2-no"><span class="pv2-ic">✖</span><span>Acesso ao aplicativo Meu Sítio Pronto</span></li>
           <li class="pv2-no"><span class="pv2-ic">✖</span><span>Atualizações Vitalícias</span></li>
         </ul>
 
@@ -453,6 +540,7 @@
             <li class="pv2-yes"><span class="pv2-ic">✔</span><span>🎁 BÔNUS 3 — Pack Máquinas e Equipamentos</span></li>
             <li class="pv2-yes"><span class="pv2-ic">✔</span><span>🎁 BÔNUS 4 — Pack Projetos de Irrigação</span></li>
             <div class="pv2-div"></div>
+            <li class="pv2-yes"><span class="pv2-ic">✔</span><span><strong>📱 Acesso ao aplicativo Meu Sítio Pronto</strong></span></li>
             <li class="pv2-yes"><span class="pv2-ic">✔</span><span>Atualizações Vitalícias</span></li>
             <li class="pv2-yes"><span class="pv2-ic">✔</span><span>Garantia de 7 dias</span></li>
           </ul>
@@ -620,10 +708,10 @@
     </div>
 
     <h2 id="modal-title" class="modal-title">
-      E se, por apenas <em class="gold">R$17,90</em> a mais, você levar o Plano Premium completo?
+      E se, por apenas <em class="gold">R$17,90</em> a mais, você levar o <em class="gold">Plano Deluxe</em> completo?
     </h2>
 
-    <p class="modal-desc">Você sai do plano básico e recebe o pack completo com lista de materiais, custo estimado e todos os bônus incluídos.</p>
+    <p class="modal-desc">Você sai do plano básico e leva o <em class="gold">Plano Deluxe</em> completo: lista de materiais, custo estimado de cada projeto e todos os bônus incluídos.</p>
 
     <div class="modal-countdown">
       <span class="mcd-ic">⏰</span>
@@ -631,8 +719,8 @@
     </div>
 
     <div class="modal-btns">
-      <a href="https://pay.wiapy.com/h_YdP9RV_Tm" class="btn-gold btn-modal-premium" id="modal-btn-premium">
-        QUERO O PLANO PREMIUM<br>POR R$17,90
+      <a href="https://pay.wiapy.com/1rBJDumH6Tkl" class="btn-gold btn-modal-premium" id="modal-btn-premium">
+        QUERO O PLANO DELUXE<br>POR R$17,90
       </a>
       <button class="btn-modal-basic" id="modal-btn-basic">
         Não, quero levar apenas o Plano Básico por R$10,00.
@@ -641,7 +729,64 @@
   </div>
 </div>
 
-<script src="js/main.min.js?v=13" defer></script>
+<!-- ══════════════════════════════════════════════
+     NOTIFICAÇÕES DE COMPRA (prova social)
+══════════════════════════════════════════════ -->
+<div id="buy-notif" class="buy-notif" role="status" aria-live="polite" aria-hidden="true">
+  <span class="buy-notif-ic" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+  </span>
+  <div class="buy-notif-txt">
+    <p class="buy-notif-name"><span id="buy-notif-name"></span> acabou de adquirir!</p>
+    <p class="buy-notif-meta"><span id="buy-notif-city"></span> · há <span id="buy-notif-min"></span> min</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var DATA = [
+    { n: 'João P.', c: 'Uberlândia, MG' },
+    { n: 'Maria S.', c: 'Goiânia, GO' },
+    { n: 'Carlos A.', c: 'Londrina, PR' },
+    { n: 'Ana Luiza', c: 'Petrolina, PE' },
+    { n: 'Roberto M.', c: 'Sinop, MT' },
+    { n: 'Fernanda R.', c: 'Campinas, SP' },
+    { n: 'José Carlos', c: 'Feira de Santana, BA' },
+    { n: 'Patrícia L.', c: 'Caxias do Sul, RS' },
+    { n: 'Marcos V.', c: 'Anápolis, GO' },
+    { n: 'Luciana F.', c: 'Juiz de Fora, MG' },
+    { n: 'Eduardo T.', c: 'Chapecó, SC' },
+    { n: 'Rita de C.', c: 'Teresina, PI' }
+  ];
+  var SHOW = 5000, GAP = 5000, START = 3000;
+
+  var box = document.getElementById('buy-notif');
+  if (!box) return;
+  var nameEl = document.getElementById('buy-notif-name');
+  var cityEl = document.getElementById('buy-notif-city');
+  var minEl = document.getElementById('buy-notif-min');
+  var i = 0;
+
+  function cycle() {
+    var d = DATA[i % DATA.length];
+    nameEl.textContent = d.n;
+    cityEl.textContent = d.c;
+    minEl.textContent = (i % 7) + 1;
+    box.classList.add('is-visible');
+    box.setAttribute('aria-hidden', 'false');
+    setTimeout(function () {
+      box.classList.remove('is-visible');
+      box.setAttribute('aria-hidden', 'true');
+      i = (i + 1) % DATA.length;
+      setTimeout(cycle, GAP);
+    }, SHOW);
+  }
+
+  setTimeout(cycle, START);
+})();
+</script>
+
+<script src="js/main.min.js?v=14" defer></script>
 
 </body>
 </html>
