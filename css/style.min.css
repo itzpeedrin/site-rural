@@ -139,8 +139,6 @@ ul, ol {
   height: 40px;
   display: flex;
   align-items: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .cd-track {
@@ -502,8 +500,6 @@ ul, ol {
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-lg);
   padding: clamp(24px, 4vw, 32px);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition: all var(--transition-med);
   position: relative;
   overflow: hidden;
@@ -731,8 +727,6 @@ ul, ol {
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-lg);
   padding: clamp(20px, 3vw, 28px);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition: all var(--transition-med);
   overflow: hidden;
 }
@@ -823,8 +817,6 @@ ul, ol {
   border: 1px solid rgba(245, 166, 35, 0.15);
   border-radius: var(--radius-lg);
   padding: clamp(20px, 4vw, 32px);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .bt-col {
@@ -908,8 +900,6 @@ ul, ol {
 /* ── Base Card ── */
 .pv2-card {
   background: rgba(12, 30, 7, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-radius: var(--radius-lg);
   padding: 36px 28px;
   border: 1.5px solid rgba(74, 124, 47, 0.3);
@@ -929,8 +919,6 @@ ul, ol {
 .pv2-premium {
   width: 390px;
   background: linear-gradient(150deg, rgba(20, 45, 8, 0.9) 0%, rgba(14, 34, 8, 0.9) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 2px solid var(--gold);
   box-shadow: 0 0 42px rgba(245, 166, 35, 0.25), 0 24px 64px rgba(0, 0, 0, 0.6);
   transform: scale(1.05);
@@ -1120,9 +1108,10 @@ ul, ol {
   animation: shimmer 2.5s ease-in-out infinite;
 }
 
+/* Brilho movido por transform (antes animava `left`, que refazia o layout a cada quadro) */
 @keyframes shimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(200%); }
 }
 
 .pv2-btn-premium:hover {
@@ -1180,8 +1169,6 @@ ul, ol {
   border: 1px solid rgba(245, 166, 35, 0.15);
   border-radius: var(--radius-lg);
   padding: clamp(24px, 4vw, 40px);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 .guarantee-badge-wrap {

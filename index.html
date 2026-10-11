@@ -49,12 +49,15 @@
 
   <link rel="preload" href="img/novo hero.webp" as="image" fetchpriority="high">
 
-  <!-- Fonte Inter: carregada em paralelo com o CSS (antes vinha via @import dentro do style.min.css, o que serializava o download) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <!-- Fonte Inter hospedada no próprio site: o CSS do Google Fonts bloqueava a página ~1 s e a fonte chegava
+       tarde, refazendo o layout inteiro. É uma fonte variável (todas as espessuras num arquivo só, só o subconjunto latino). -->
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+  @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:optional;src:url(fonts/inter-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  </style>
 
-  <link rel="stylesheet" href="css/style.min.css?v=15">
+  <link rel="stylesheet" href="css/style.min.css?v=16">
 
   <!-- Seção do aplicativo (estilos próprios) -->
   <style>
@@ -76,7 +79,7 @@
     .bonus-old-price{color:#ff5b52;background:rgba(229,57,53,.18);border:1px solid rgba(229,57,53,.45)}
 
     /* Notificações de compra (prova social) */
-    .buy-notif{position:fixed;bottom:14px;left:14px;z-index:900;max-width:250px;display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:var(--radius-md);border:1px solid rgba(255,255,255,.12);background:rgba(7,21,4,.96);box-shadow:0 10px 32px rgba(0,0,0,.4);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transform:translateY(12px);opacity:0;transition:transform .5s ease,opacity .5s ease;pointer-events:none}
+    .buy-notif{position:fixed;bottom:14px;left:14px;z-index:900;max-width:250px;display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:var(--radius-md);border:1px solid rgba(255,255,255,.12);background:rgba(7,21,4,.96);box-shadow:0 10px 32px rgba(0,0,0,.4);transform:translateY(12px);opacity:0;transition:transform .5s ease,opacity .5s ease;pointer-events:none}
     .buy-notif.is-visible{transform:translateY(0);opacity:1}
     .buy-notif-ic{flex:0 0 auto;color:var(--green-bright);display:flex}
     .buy-notif-txt{line-height:1.28}
