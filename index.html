@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://connect.facebook.net">
 
   <!-- Meta Pixel Code -->
+  <!-- O fbevents.js trava o celular enquanto a página desenha (Lighthouse: LCP 5,5 s -> 3,4 s adiando).
+       Ele carrega 1,5 s depois do load, ou no primeiro toque/rolagem/clique; até lá os eventos ficam na fila do fbq. -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -15,7 +17,9 @@
   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
   n.queue=[];t=b.createElement(e);t.async=!0;
   t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  var ok=0,go=function(){if(ok)return;ok=1;s.parentNode.insertBefore(t,s)};
+  f.addEventListener('load',function(){setTimeout(go,1500)});
+  ['touchstart','scroll','click','keydown'].forEach(function(x){f.addEventListener(x,go,{once:true,passive:true})})}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '1061763059868188');
   fbq('track', 'PageView');
